@@ -44,7 +44,7 @@ img {
 .topnav a {
   float: left;
   display: block;
-  color: #000000;
+  color: rgba(255, 0, 27, 1);
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
@@ -69,6 +69,13 @@ img {
   display: none;
 }
 
+.form-error {
+  display: none;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255, 78, 96, 1);
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {
     display: none;
@@ -76,6 +83,12 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
+  }
+
+  .bground {
+    height: 93vw;
+    position: absolute;
+    bottom: 0;
   }
 }
 
@@ -208,6 +221,7 @@ input {
   padding: 8px;
   width: 100%;
   border-radius: 8px;
+  border: solid 3px;
   font-size: 20px;
   height: 48px;
 }
