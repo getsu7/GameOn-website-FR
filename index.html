@@ -44,30 +44,40 @@
         <button class="btn-signup modal-btn">je m'inscris</button>
       </div>
 
-      <div class="bground">
+      <div class="form bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="close close-form-modal"></span>
           <div class="modal-body">
             <form name="reserve">
               <div class="formData">
                 <label for="firstname">Prénom</label>
-                <input class="text-control" type="text" id="firstname" name="firstname" minlength="2" />
+                <input class="text-control form-field" type="text" id="firstname" name="firstname" />
+                <p class="form-error firstname-error">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p>
               </div>
               <div class="formData">
                 <label for="lastname">Nom</label>
-                <input class="text-control" type="text" id="lastname" name="lastname" minlength="2" />
+                <input class="text-control form-field" type="text" id="lastname" name="lastname" />
+                <p class="form-error lastname-error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p>
               </div>
               <div class="formData">
                 <label for="email">E-mail</label>
-                <input class="text-control" type="email" id="email" name="email" />
+                <input class="text-control form-field" type="email" id="email" name="email" />
+                <p class="form-error email-error">Veuillez entrer une adresse mail valide.</p>
               </div>
               <div class="formData">
                 <label for="birthdate">Date de naissance</label>
-                <input class="text-control" type="date" id="birthdate" name="birthdate" />
+                <input class="text-control form-field" type="date" id="birthdate" name="birthdate" />
+                <p class="form-error birthdate-error">Vous devez entrer votre date de naissance valide.</p>
               </div>
               <div class="formData">
                 <label for="nbTournament">À combien de tournois GameOn avez-vous déjà participé ?</label>
-                <input type="number" class="text-control" id="nbTournament" name="nbTournament" min="0" max="99" />
+                <input
+                  type="number"
+                  class="text-control form-field"
+                  id="nbTournament"
+                  name="nbTournament"
+                />
+                <p class="form-error nbTournament-error">Vous devez entrer le nombre de tournois auquel vous avez participé.</p>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div class="formData">
@@ -101,22 +111,33 @@
                   <span class="checkbox-icon"></span>
                   Portland
                 </label>
+                <p class="form-error location-error">Vous devez choisir une option.</p>
               </div>
 
               <div class="formData">
-                <input class="checkbox-input" type="checkbox" id="termsOfUse" checked />
-                <label class="checkbox2-label" for="termsOfUse" required>
+                <input class="checkbox-input" type="checkbox" id="termsOfUse" name="termsOfUse"/>
+                <label class="checkbox2-label" for="termsOfUse">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <input class="checkbox-input" type="checkbox" id="newsletter" />
+                <p class="form-error termsOfUse-error">Vous devez vérifier que vous acceptez les termes et conditions.</p>
+                <input class="checkbox-input" type="checkbox" id="newsletter" name="newsletter" />
                 <label class="checkbox2-label" for="newsletter">
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
                 </label>
+                <p class="form-error newsletter-error"></p>
               </div>
               <input class="btn-submit" type="submit" class="button" value="C'est parti" />
             </form>
+          </div>
+        </div>
+      </div>
+      <div class="success-modal bground">
+        <div class="content">
+          <span class="close close-success-modal"></span>
+          <div class="modal-body">
+            <p>Merci pour votre inscription!</p>
           </div>
         </div>
       </div>
@@ -124,6 +145,6 @@
     <footer>
       <p class="copyrights">Copyright 2014 - 2022, GameOn Inc.</p>
     </footer>
-    <script src="/src/js/modal.js"></script>
+    <script src="/src/modal.js" type="module"></script>
   </body>
 </html>
