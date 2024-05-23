@@ -23,6 +23,7 @@ export function onChangeValidateBirthdate(birthdateState) {
   const birthYear = new Date(birthdateState.value).getFullYear();
   const currentYear = new Date();
   if (birthYear > !currentYear.getFullYear() - 1 && birthYear < currentYear.getFullYear() - 6) {
+
     birthdateState.valid = true;
     return true;
   }

@@ -13,6 +13,7 @@ function editNav() {
 /**
  * DOM Selectors
  */
+
 let formIsValid = false;
 const modalbg = document.querySelector('.form');
 const modalBtn = document.querySelectorAll('.modal-btn');
