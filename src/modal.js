@@ -13,13 +13,15 @@ function editNav() {
 /**
  * DOM Selectors
  */
+
+let formIsValid = false;
 const modalbg = document.querySelector('.form');
 const modalBtn = document.querySelectorAll('.modal-btn');
 const closeForm = document.querySelector('.close-form-modal');
 const closeSuccess = document.querySelector('.close-success-modal');
 const form = document.querySelector('form');
 const successModal = document.querySelector('.success-modal');
-const submitBtn = document.querySelector('.btn-submit');
+const submitBtn = document.querySelector('#btn-submit');
 
 export const firstname = document.querySelector('#firstname');
 export const lastname = document.querySelector('#lastname');
@@ -52,12 +54,29 @@ function closeSuccessModal() {
   successModal.style.display = 'none';
 }
 
+function disabledSubmitBtn() {
+  let isNotValid = Object.entries(formState).filter((field) => !field[1].valid);
+  if (!isNotValid.length) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('btn-submit-disable');
+        submitBtn.classList.add('btn-submit');
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('btn-submit');
+        submitBtn.classList.add('btn-submit-disable');
+      }
+}
+
 function displayError() {
   Object.entries(formState).forEach((field) => {
-    if (field[0] !== 'isTrusted') {
+    if (field[0] !== 'newsletter') {
       const fieldError = document.querySelector(`.${field[0]}-error`);
-      if (!field[1].valid) {
-        fieldError.style.display = 'block';
+      if (field[1].value) {
+        if (field[1].valid) {
+          fieldError.style.display = 'none';
+        } else if (!field[1].valid) {
+          fieldError.style.display = 'block';
+        }
       } else {
         fieldError.style.display = 'none';
       }
@@ -67,12 +86,10 @@ function displayError() {
 
 function fieldValidation(field, formState) {
   if (formState.value) {
-    if (formState.valid === true) {
+    if (formState.valid) {
       field.style.borderColor = 'green';
-      displayError(field);
     } else {
       field.style.borderColor = 'red';
-      displayError(field);
     }
   } else {
     field.style.borderColor = '';
@@ -80,14 +97,14 @@ function fieldValidation(field, formState) {
 }
 
 function postForm(formState) {
-  let formIsValid = true;
+  let isValid = true;
   Object.entries(formState).forEach((formField) => {
     if (!formField[1].valid) {
       displayError();
-      return (formIsValid = false);
+      return (isValid = false);
     }
   });
-  return formIsValid;
+  return isValid;
 }
 
 //
@@ -156,4 +173,10 @@ form.addEventListener('submit', (e) => {
   if (postForm(formState)) {
     launchSuccesModal();
   }
+});
+
+form.addEventListener('change', (e) => {
+  e.preventDefault();
+  displayError();
+  disabledSubmitBtn();
 });

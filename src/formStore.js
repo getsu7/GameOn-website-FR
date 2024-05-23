@@ -1,11 +1,11 @@
 // form state
 export const formState = {
-    firstname: { value: '', valid: undefined },
-    lastname: { value: '', valid: undefined },
-    email: { value: '', valid: undefined },
-    birthdate: { value: '', valid: undefined },
-    nbTournament: { value: '', valid: undefined },
-    location: { value: '', valid: undefined },
-    termsOfUse: { value: false, valid: undefined },
-    newsletter: { value: false, valid: true }
+    firstname: { value: '', valid: false },
+    lastname: { value: '', valid: false },
+    email: { value: '', valid: false },
+    birthdate: { value: '', valid: false },
+    nbTournament: { value: '', valid: false },
+    location: { value: '', valid: false },
+    newsletter: { value: false, valid: true },
+    termsOfUse: { value: false, valid: false }
   };

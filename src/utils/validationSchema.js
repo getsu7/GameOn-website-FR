@@ -20,9 +20,10 @@ export function onChangeValidateName(nameState) {
 }
 
 export function onChangeValidateBirthdate(birthdateState) {
-  const year = new Date(birthdateState.value).getFullYear();
+  const birthYear = new Date(birthdateState.value).getFullYear();
   const currentYear = new Date();
-  if (year > !currentYear.getFullYear() - 1 && year < currentYear.getFullYear() - 6) {
+  if (birthYear > !currentYear.getFullYear() - 1 && birthYear < currentYear.getFullYear() - 6) {
+
     birthdateState.valid = true;
     return true;
   }
