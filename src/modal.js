@@ -1,8 +1,12 @@
 import { formState } from './formStore.js';
 import * as validateForm from './utils/validationSchema.js';
 
+const icon = document.querySelector(".icon");
+
+icon.addEventListener("click", editNav);
+
 function editNav() {
-  var x = document.getElementById('myTopnav');
+  var x = document.getElementById('navbar');
   if (x.className === 'topnav') {
     x.className += ' responsive';
   } else {
@@ -20,8 +24,9 @@ const modalBtn = document.querySelectorAll('.modal-btn');
 const closeForm = document.querySelector('.close-form-modal');
 const closeSuccess = document.querySelector('.close-success-modal');
 const form = document.querySelector('form');
-const successModal = document.querySelector('.success-modal');
+const successModal = document.querySelector('.success-modal-bgroung');
 const submitBtn = document.querySelector('#btn-submit');
+const closeBtn = document.querySelector('#btn-close');
 
 export const firstname = document.querySelector('#firstname');
 export const lastname = document.querySelector('#lastname');
@@ -120,6 +125,7 @@ submitBtn.addEventListener('click', postForm);
 // close modal
 closeForm.addEventListener('click', closeModal);
 closeSuccess.addEventListener('click', closeSuccessModal);
+closeBtn.addEventListener('click', closeSuccessModal);
 
 firstname.addEventListener('change', (e) => {
   formState.firstname.value = e.target.value;

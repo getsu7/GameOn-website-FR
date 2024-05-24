@@ -10,17 +10,16 @@
   </head>
 
   <body>
-    <div class="topnav" id="myTopnav">
+    <div class="topnav" id="navbar">
       <div class="header-logo">
         <img alt="logo" src="assets/images/logo.png" width="auto" height="auto" />
       </div>
       <div class="main-navbar">
-        <a href="#" class="active"><span>Accueil</span></a>
-        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#" class="active"><span>Détails de l'évènement</span></a>
         <a href="#"><span>À propos</span></a>
         <a href="#"><span>Contact</span></a>
         <a href="#"><span>Évènements passés</span></a>
-        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+        <a href="javascript:void(0);" class="icon">
           <i class="fa fa-bars"></i>
         </a>
       </div>
@@ -71,13 +70,10 @@
               </div>
               <div class="formData">
                 <label for="nbTournament">À combien de tournois GameOn avez-vous déjà participé ?</label>
-                <input
-                  type="number"
-                  class="text-control form-field"
-                  id="nbTournament"
-                  name="nbTournament"
-                />
-                <p class="form-error nbTournament-error">Vous devez entrer le nombre de tournois auquel vous avez participé.</p>
+                <input type="number" class="text-control form-field" id="nbTournament" name="nbTournament" />
+                <p class="form-error nbTournament-error">
+                  Vous devez entrer le nombre de tournois auquel vous avez participé.
+                </p>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div class="formData">
@@ -114,7 +110,7 @@
                 <p class="form-error location-error"></p>
               </div>
               <div class="formData">
-                <input class="checkbox-input" type="checkbox" id="termsOfUse" name="termsOfUse"/>
+                <input class="checkbox-input" type="checkbox" id="termsOfUse" name="termsOfUse" />
                 <label class="checkbox2-label" for="termsOfUse">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
@@ -128,17 +124,25 @@
                 </label>
                 <p class="form-error newsletter-error"></p>
               </div>
-              <input id="btn-submit" class="btn-submit-disable" type="submit" class="button" value="C'est parti" disabled />
+              <input
+                id="btn-submit"
+                class="btn-submit-disable"
+                type="submit"
+                class="button"
+                value="C'est parti"
+                disabled
+              />
             </form>
           </div>
         </div>
       </div>
-      <div class="success-modal bground">
+      <div class="success-modal-bgroung bground">
         <div class="content">
           <span class="close close-success-modal"></span>
-          <div class="modal-body">
-            <p>Merci pour votre inscription!</p>
+          <div class="modal-body success-modal">
+            <p>Merci pour votre inscription</p>
           </div>
+          <input id="btn-close" type="button" class="btn-submit" value="Fermer" />
         </div>
       </div>
     </main>
